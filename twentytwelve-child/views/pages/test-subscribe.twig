@@ -1,0 +1,50 @@
+<div class="center-block site-content-right">
+    <div class="breadcrumbs">{{ breadcrumbs }}</div>
+    <main role="main">
+
+        <h1>{{ post.title }}</h1>
+        <div class="static-content">
+
+            {% if flash_message %}
+                <div class="alert alert-info" role="alert">{{ flash_message }}</div>
+            {% endif %}
+
+            <div class="static-content">
+                {{ post.content }}
+            </div>
+
+            <div class="subscribe-add-mail">
+                <h3>Заявка на пробную подписку</h3>
+                <form action="{{ action_addr }}" method="post">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="fio">Имя (Организация) <span style="color: red">*</span></label>
+                            <input type="text" class="form-control" id="fio" placeholder="Ваше имя или название организации" name="fio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email <span style="color: red">*</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="Ваш email"
+                                   name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон <span style="color: red">*</span></label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Ваш номер телефона"
+                                   name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LdKY64ZAAAAAC388XgNCjPgGGZfBF67_Qqu-hoe"></div>
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Отправить</button>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="action" value="test_subscribe">
+                    <br>
+                </form>
+
+            </div>
+        </div>
+
+
+    </main>
+</div>
