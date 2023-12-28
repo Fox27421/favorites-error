@@ -1133,50 +1133,34 @@ function clear_user_unread_messages($req) {
 
 
 function set_user_favorites($req) {
-
   $user_id = VerifyToken($req->get_headers()['token'][0]);
 
+  $articles = get_user_meta($user_id, 'favorites_list', true);
 
-
-  $articles = get_user_meta( $user_id, 'favorites_list', true );
-
-  if(empty($articles) && !isset($articles)) {
-
-    $new_set = array($req['articleId']);
-
-    add_user_meta( $user_id, 'favorites_list', $new_set );
-
-  } else {
-
-    if(in_array($req['articleId'], $articles)) {
-
-      if (($key = array_search($req['articleId'], $articles)) !== false) {
-
-        unset($articles[$key]);
-
+  if (!is_array($articles)) {
+      if (empty($articles)) {
+          $articles = [];
+      } else {
+          $articles = explode(',', $articles);
       }
-
-    } else {
-
-      array_push($articles, $req['articleId']);
-
-    }
-
-    update_user_meta( $user_id, 'favorites_list', $articles );
-
   }
 
+  if (in_array($req['articleId'], $articles)) {
+      if (($key = array_search($req['articleId'], $articles)) !== false) {
+          unset($articles[$key]);
+      }
+  } else {
+      array_push($articles, $req['articleId']);
+  }
 
+  update_user_meta($user_id, 'favorites_list', $articles);
 
   return array(
-
-    'userId' => $user_id,
-
-    'articles' => get_user_meta( $user_id, 'favorites_list', true )
-
+      'userId' => $user_id,
+      'articles' => get_user_meta($user_id, 'favorites_list', true)
   );
-
 }
+
 
 
 

@@ -10,10 +10,10 @@ export class FavoriteService {
                 id: art_id
             },
             success: function (response) {
-                console.log(response);
+                console.log("Response from add_favorite:", response);
             },
             error: function (response) {
-                console.log(response);
+                console.error("Error in add_favorite:", response);
             }
         });
     }

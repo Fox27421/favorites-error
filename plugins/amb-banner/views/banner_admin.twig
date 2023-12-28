@@ -1,0 +1,118 @@
+<div>
+    <form enctype="multipart/form-data" action="" method="POST">
+        {{ nonce }}
+        <h1>Баннер 1 (слева)</h1>
+        <div>
+            <table>
+                <tr>
+                    <td style="width: 100px">Имя</td>
+                    <td><input type="text" name="banner1_name" value="{{ banner1.name }}"/></td>
+                </tr>
+                <tr>
+                    <td>Url</td>
+                    <td><input type="text" name="banner1_url" value="{{ banner1.url }}"/></td>
+                </tr>
+                <tr>
+                    <td>Активен</td>
+                    <td><input type="checkbox" name="banner1_enabled" {% if banner1.enabled %}checked="checked"{% endif %}/></td>
+                </tr>
+                <tr>
+                    <td>Изображение</td>
+                    <td>
+                        <input id="image-url1" type="text" name="banner1_image" value="{{ banner1.image }}"/>
+                        <input id="upload-button1" type="button" class="button" value="Выбрать изображение"/>
+                        <div id="preview" style="margin: 5px">
+                            <img src="{{ banner1.image }}" width="250" height="150" alt="">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <h1>Баннер 2 (сверху 1)</h1>
+        <div>
+            <table>
+                <tr>
+                    <td style="width: 100px">Имя</td>
+                    <td><input type="text" name="banner2_name" value="{{ banner2.name }}"/></td>
+                </tr>
+                <tr>
+                    <td>Url</td>
+                    <td><input type="text" name="banner2_url" value="{{ banner2.url }}"/></td>
+                </tr>
+                <tr>
+                    <td>Активен</td>
+                    <td><input type="checkbox" name="banner2_enabled" {% if banner2.enabled %}checked="checked"{% endif %}/></td>
+                </tr>
+                <tr>
+                    <td>Изображение</td>
+                    <td>
+                        <input id="image-url2" type="text" name="banner2_image" value="{{ banner2.image }}"/>
+                        <input id="upload-button2" type="button" class="button" value="Выбрать изображение"/>
+                        <div id="preview2" style="margin: 5px">
+                            <img src="{{ banner2.image }}" width="250" height="150" alt="">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <h1>Баннер 3 (сверху 2)</h1>
+        <div>
+            <table>
+                <tr>
+                    <td style="width: 100px">Имя</td>
+                    <td><input type="text" name="banner3_name" value="{{ banner3.name }}"/></td>
+                </tr>
+                <tr>
+                    <td>Url</td>
+                    <td><input type="text" name="banner3_url" value="{{ banner3.url }}"/></td>
+                </tr>
+                <tr>
+                    <td>Активен</td>
+                    <td><input type="checkbox" name="banner3_enabled" {% if banner3.enabled %}checked="checked"{% endif %}/></td>
+                </tr>
+                <tr>
+                    <td>Изображение</td>
+                    <td>
+                        <input id="image-url3" type="text" name="banner3_image" value="{{ banner3.image }}"/>
+                        <input id="upload-button3" type="button" class="button" value="Выбрать изображение"/>
+                        <div id="preview3" style="margin: 5px">
+                            <img src="{{ banner3.image }}" width="250" height="150" alt="">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <h1>Баннер 4 (справа)</h1>
+        <div>
+            <table>
+                <tr>
+                    <td style="width: 100px">Имя</td>
+                    <td><input type="text" name="banner4_name" value="{{ banner4.name }}"/></td>
+                </tr>
+                <tr>
+                    <td>Url</td>
+                    <td><input type="text" name="banner4_url" value="{{ banner4.url }}"/></td>
+                </tr>
+                <tr>
+                    <td>Активен</td>
+                    <td><input type="checkbox" name="banner4_enabled" {% if banner4.enabled %}checked="checked"{% endif %}/></td>
+                </tr>
+                <tr>
+                    <td>Изображение</td>
+                    <td>
+                        <input id="image-url4" type="text" name="banner4_image" value="{{ banner4.image }}"/>
+                        <input id="upload-button4" type="button" class="button" value="Выбрать изображение"/>
+                        <div id="preview4" style="margin: 5px">
+                            <img src="{{ banner4.image }}" width="250" height="150" alt="">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        
+        </div>
+        <input type="submit" title="Сохранить" value="Сохранить">
+    </form>
+</div>
